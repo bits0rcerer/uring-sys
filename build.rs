@@ -40,6 +40,8 @@ fn main() {
         .wrap_static_fns_path(out_dir.join("rusturing.c"))
         .rustified_enum("io_uring_op") // Not used in C code; safe to rustify
         .rustified_non_exhaustive_enum("io_uring_op")
+        .generate_comments(true)
+        .clang_arg("-fparse-all-comments")
         .generate()
         .unwrap();
 
